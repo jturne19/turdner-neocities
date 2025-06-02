@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Blog Post</title>
+        <!-- If you leave title as "Blog Post", it will automatically be updated to the post title -->
+        <link rel="icon" href="../images/galaxy2.png" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <link href="../style/style.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">...</div>
+            <div id="content">
+                <h1>Custom TODO App</h1>
+
+                <p><a href="https://github.com/jturne19/todors" target="_blank">todors on my github</a></p>
+
+                <div style="text-align: center">
+                    <img src="../images/todors.png" alt="screenshot of todors" />
+                </div>
+
+                <p>
+                    I recently built a small custom TODO app written in Rust to 1.) learn and use Rust, 2.) satisfy my
+                    needs for a simple TODO app for work. I searched around for a simple TODO app which would show a
+                    small GUI window with my TODOs, allow me to checkmark them, and not do any fancy internet garbage.
+                    Most TODO apps I found, while cool, were way too complicated (<a
+                        href="https://www.todoist.com/"
+                        target="_blank"
+                        >todoist</a
+                    >, Microsoft To Do) or only have TUI/cli interface which is not what I want to use on my (windows)
+                    work laptop. I also see people do dumb nerd things where they keep a todo text file somewhere and
+                    rsync or sycnth it to different machines or some such stuff. Not really what I am looking for to
+                    keep track of tasks at work.
+                </p>
+
+                <p>
+                    <code>todors</code> (pronouced like tudors?) lets users enter new TODOs using the input box and it
+                    adds them to the TODO list. When a TODO item is checkmarked, it is sent down to the DONEs list which
+                    is collapsable. You can uncheckmark a DONE and it will go back to the TODOs. Both TODOs and DONEs
+                    are stored in separate markdown files in the directory <code>$HOME/.todors</code> as
+                    <code>todos.md</code> and <code>done_todos.md</code>. As TODOs and DONEs are made, these files are
+                    updated. Upon opening <code>todors</code>, these Markdown files are loaded. This allows for the
+                    flexibility of editing the Markdown files directly which will then show up in the GUI display. A
+                    TODO for this project is for the files to be loaded dynamically on any change so the changes show up
+                    in real-time. I'll get to that eventually. The DONEs saved in the done_todos.md file include a
+                    date-stamp for when the task was completed. Handy for looking back and seeing what you've done and
+                    when!
+                </p>
+
+                <h3>Code stuff</h3>
+
+                <p>
+                    <code>todors</code> is dead simple, baby's first Rust code. It's just a single file. It uses the
+                    <a href="https://github.com/emilk/egui" target="_blank">egui</a> library for the GUI elements.
+                    There's really nothing fancy going on.
+                </p>
+
+                <p>
+                    A great aspect for Rust is the ease of cross-compiling. It really is just a "<code
+                        >cargo build --release</code
+                    >" to build it on Linux or Windows. I wrote it on my linux puter but compile and use it on my work
+                    windows laptop. I haven't tried it yet but I think it's really simple to build the executables for
+                    different target architectures from a single dev environment. Another TODO for
+                    <code>todors</code> is to put some releases out on the github.
+                </p>
+
+                <p>
+                    Other TODOs for <code>todors</code> is to allow for user-settable locations for saving the TODOs and
+                    DONEs and for user-settable color configuration. That way you can customize the look and match your
+                    colorschemes. Currently it just does the default egui dark/light them depending on your computer's
+                    current theme (or at least them at startup of <code>todors</code>, idk I haven't tested it).
+                </p>
+
+                <p>
+                    Leave a comment or whatever on github if you have feedback! It's open source so you can fork it and
+                    upgrade things as you'd like and put in a pull request!
+                </p>
+            </div>
+            <!-- end of div id="content" -->
+            <div id="footer"></div>
+        </div>
+        <!-- end of div id="container" -->
+        <!-- Here's the link to our JavaScript! -->
+        <script src="../scripts/script.js"></script>
+    </body>
+</html>
